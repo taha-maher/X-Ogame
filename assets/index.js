@@ -1,3 +1,4 @@
+const turnsHeading = document.querySelector(".turns-heading")
 const gameBox = document.querySelector(".game-box");
 const cells = Array.from(document.querySelectorAll(".cell"));
 const lightboxContainer = document.querySelector(".lightbox-container");
@@ -25,6 +26,7 @@ function playerClicked(e) {
             showLightBox(true)
         } else {
             currentPlayer = currentPlayer === playerO ? playerX : playerO;
+            turnsHeading.innerText = `Player${currentPlayer}'s turn`;
         }
     }
 }
@@ -45,6 +47,7 @@ function checkDraw() {
 function restartGame(){
     cells.forEach(cell => cell.innerText = "");
     currentPlayer = "O";
+    turnsHeading.innerText = `Player${currentPlayer}'s turn`;
     hideLightBox();
 }
 
